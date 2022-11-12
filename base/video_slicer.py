@@ -47,7 +47,7 @@ def split_video(obj,media):
                     video = obj,
                     segment_name = 'clip_%d'% count,
                 )
-                video_segment.video_segment=os.path.join(root, "clip_%d.mp4" % count)
+                video_segment.video_segment=os.path.join('media/segment/', "clip_%d.mp4" % count)
                 video_segment.save()
                 count += 1
             
@@ -57,7 +57,7 @@ def split_video(obj,media):
                     video = obj,
                     segment_name = 'clip_%d'% count,
                 )
-                video_segment.video_segment=os.path.join(root, "clip_%d.mp4" % count)
+                video_segment.video_segment=os.path.join('media/segment/', "clip_%d.mp4" % count)
                 video_segment.save()
             print(count)
         
