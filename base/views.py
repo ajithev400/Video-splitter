@@ -7,20 +7,19 @@ from .serializers import VideoSegmentSerializer
 from .video_slicer import split_video
 
 # Create your views here.
-
-
-class VideoAPIView(APIView):
-    def get(self,request):
+class VideoSegmentAPIView(APIView):
+    def post(self,request):
         
         id = request.data['video']
         try:
-
             video_seqments = VideoSegment.objects.filter(video__id=id).order_by('segment_name')
             serializer = VideoSegmentSerializer(video_seqments,many=True)
             return Response(serializer.data)
         except:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
+class VideoAPIView(APIView):
+    
     def post(self,request):
         media = request.FILES['media']
         fs = FileSystemStorage()

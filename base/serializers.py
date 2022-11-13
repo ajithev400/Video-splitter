@@ -9,6 +9,7 @@ class VideoSerializer(serializers.ModelSerializer):
 
 
 class VideoSegmentSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = VideoSegment
         fields = ('id','segment_name','video_segment','video')
